@@ -3,7 +3,7 @@
 ### Autonomous Multi-Agent Research Intelligence Platform
 
 <p align="center">
-  <img src="assets/banner.png" width="100%" alt="DeepInsight AI Banner"/>
+  <img src="assets/dashboard.png" width="100%" alt="DeepInsight AI Banner"/>
 </p>
 
 <p align="center">
@@ -43,9 +43,7 @@ DeepInsight AI automates the entire workflow using autonomous AI agents that per
 
 # 🧠 Core Architecture
 
-<p align="center">
-  <img src="assets/architecture.png" width="90%" alt="System Architecture"/>
-</p>
+ 
 
 ```text
 User Query
@@ -315,14 +313,6 @@ DeepInsight-AI/
 ```
 
 ---
-
-# 📸 Screenshots
-
-## Dashboard
-
-```markdown
-assets/dashboard.png
-```
 
 ---
 
