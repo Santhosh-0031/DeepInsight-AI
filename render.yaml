@@ -1,0 +1,47 @@
+services:
+  - type: web
+    name: deep-research-agent-backend
+    runtime: python
+    pythonVersion: 3.11
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 1
+
+    # Memory optimization settings
+    plan: standard # Use standard plan for 512MB memory
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: PYTHONHASHSEED
+        value: "0"
+      # Reduce garbage collection frequency for better performance
+      - key: PYTHONGC_DEBUG
+        value: "0"
+      # FastAPI/Uvicorn settings for memory efficiency
+      - key: UVICORN_LOOP
+        value: "uvloop"
+      - key: REDIS_MAXMEMORY_POLICY
+        value: "allkeys-lru"
+      # Reduce concurrent requests to 2
+      - key: UVICORN_WORKERS
+        value: "1"
+      # Load API keys from environment
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: TAVILY_API_KEY
+        sync: false
+      - key: REDIS_URL
+        sync: false
+
+  - type: web
+    name: deep-research-agent-frontend
+    runtime: node
+    nodeVersion: 18
+    buildCommand: cd frontend && npm install && npm run build
+    startCommand: cd frontend && npm run preview
+
+staticSites:
+  - name: deep-research-agent-assets
+    sourceDir: assets
+    routes:
+      - path: /assets
+        destination: /

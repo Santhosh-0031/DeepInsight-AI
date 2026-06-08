@@ -1,0 +1,75 @@
+# ── Environment & Secrets ──────────────────────────────────
+.env
+.env.local
+backend/.env
+backend/.env.local
+frontend/.env
+frontend/.env.local
+# Keep .env.render as a template (no secrets)
+!.env.render
+
+# ── Python ─────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+.venv/
+venv/
+env/
+
+# ── Node / Frontend ───────────────────────────────────────
+node_modules/
+frontend/dist/
+
+# ── IDE ────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ── Testing ────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ── Generated Outputs ─────────────────────────────────────
+outputs
+outputs/
+backend/outputs/
+backend/chroma_data/backend/cache/
+
+# ── Redis Cache & Temp Data ───────────────────────────
+*.rdb
+*.aof
+.redis/
+# ── Jupyter ────────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── LangGraph / LangSmith ─────────────────────────────────
+.langgraph_api/
+
+# ── Logs & Misc ───────────────────────────────────────────
+*.log
+build.log
+*.bak
+*.tmp
+# ── OS & Editor Temp Files ────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+*.orig
+*~
+
+# ── Render & Deployment ────────────────────────────────
+.render/
+.render.yaml.bak
+
+# ── Frontend Build ────────────────────────────────────
+frontend/.vite/
+frontend/dist/
+.env.production
